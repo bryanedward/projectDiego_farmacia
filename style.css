@@ -1,0 +1,181 @@
+
+*{
+    margin: 0 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'open sans';
+}
+/* header */
+header{
+    width: 100%;
+    height: 600px;
+    border: 1px solid white;
+    position: relative;
+    /* fallback for old browsers */
+    /* background: #bc4e9c; */
+    /* Chrome 10-25, Safari 5.1-6 */ 
+    /* background: -webkit-linear-gradient(to right, #493240, #FF0099);   */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* background: linear-gradient(to right, hsla(325, 20%, 50%, 0.637), hsla(324, 100%, 50%, 0.424)), url(./profilemario.jpg);  */
+    background-size: cover;
+    background-image: url(./profile.jpg);
+    background-attachment: fixed;
+}
+
+.header-info{
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 2rem;
+    margin-top: 11rem;
+    text-align: center;
+    color: rgb(2, 34, 49);
+
+}
+
+.wave{ 
+width: 100%;
+position: absolute;
+bottom: 0%;
+}
+
+
+/* navigation */
+.header-nav{
+    margin-top: 1rem;
+}
+
+.header-nav > a{
+    display: inline;
+    letter-spacing: 0.1rem;
+    padding: .5rem;
+    margin-left: 1.3rem;
+    text-transform: uppercase;
+    color: rgb(2, 34, 49);
+}
+
+.header-nav > a:hover{
+    background-color: rgb(2, 34, 49);
+    color: white;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}
+
+
+/* container of the web site for*/
+.container {
+    max-width: 90%;
+    margin: auto;
+} 
+
+.container-detail{
+    text-align: center;
+}
+
+.container-detail p{
+    font-size: 1.3rem;
+}
+
+.container-services{
+    margin:6rem 0 auto 10px;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    column-gap: 5px;
+}
+
+.container-services  .service{
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+    height: 50%;
+    border-radius: 1rem;
+    padding: .6rem;
+    box-shadow: 1px 1px 4px 1px;
+}
+
+.container-services .service > img{
+    width: 100%;
+    background-size: cover;
+    height: 100%;
+
+}
+
+.container-services .service > p{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: .9rem;
+    color: rgb(2, 34, 49);
+}
+
+.container-services .service:hover{
+    animation-name: services;
+    animation-duration: 2s;
+}
+
+.doctor-year{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.container-doctores{
+    display: flex;
+    flex-direction: row;
+    margin-right: 3rem;
+    margin-bottom: 5rem;
+}
+
+.container-doctores .doctor-info{
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.container-doctores .doctor-info p{
+    text-align: center;
+    color: rgb(2, 34, 49);
+}
+
+.container-doctores > img{
+    max-width: 30%;
+    margin: auto;
+    background-size: cover;
+}
+
+/* animation */
+@keyframes services{
+    0%{ bottom: 10px; 
+        position: relative;  
+        border: 2px solid  rgb(2, 34, 49);}
+
+}
+
+
+@media screen and (max-width:900px){
+    header{
+        background-position: center;
+    }
+
+    .container-doctores{
+        flex-direction: column-reverse;
+        margin-left: 1rem;
+    }
+
+    .container-doctores .doctor-info{
+        margin-top: 3rem;
+    }
+
+    .container-doctores > img {
+        margin-top: 4rem;
+        max-width: 100%;
+    }
+
+    .container-services{
+    display: flex;
+    flex-direction: column-reverse;
+    }
+
+    .container-services  .service{
+        margin: 3rem auto;
+        max-width: 60%;
+    }
+}
