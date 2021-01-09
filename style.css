@@ -1,3 +1,4 @@
+@import url('./design_nav/nav.css');
 
 *{
     margin: 0 0;
@@ -18,7 +19,7 @@ header{
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     /* background: linear-gradient(to right, hsla(325, 20%, 50%, 0.637), hsla(324, 100%, 50%, 0.424)), url(./profilemario.jpg);  */
     background-size: cover;
-    background-image: url(./profile.jpg);
+    background-image: url(./pexels.jpg);
     background-attachment: fixed;
 }
 

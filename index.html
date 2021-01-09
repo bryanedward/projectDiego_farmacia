@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+    <script src="configur.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
     <title>Farmacia Diego</title>
 </head>
 
@@ -41,28 +46,38 @@
             </p>
         </div>
         <div class="container-services">
-            <div class="service">
-                <img src="./online_store_.svg" alt="">
-                <p> compras</p>
+            <div class="service" id="servicio">
+                <img src="./imagenes/health_.svg" alt="">
+                <li><a id="acceso">Administrador</a></li>
             </div>
             <div class="service">
-                <img src="./health_.svg" alt="">
-                <p>acceso</p>
-            </div>
-            <div class="service">
-                <img src="./example-8.svg" alt="">
-                <p>solicitar turno</p>
+                <img src="./imagenes/example-8.svg" alt="">
+                <li><a href="./pag_doctor/farmacia.html">Solicitar Turno</a></li>
             </div>
         </div>
-        <h2 class="doctor-year">Doctor del Año</h2>
-        <div class="container-doctores">
-            <div class="doctor-info">
-                <p>DOCTOR. DIEGO JOZA
-                    ESPECIALISTA EN REHABILITACION ORAL Y ESTETICA CIRUGIA DENTO MAXILO FACIAL ENDODONCIA,
-                    ORTODONCIA,DISEÑO DE SONRISA,
-                    TECNOLOGIA DE PUNTA RADIOVISOGRAFO DIGITAL,CAMARA INTRAORAL ,LASSER DENTAL,</p>
+        <div>
+            <h2 class="doctor-year">Doctor del Año</h2>
+            <div class="container-doctores">
+                <div class="doctor-info">
+                    <p>DOCTOR. DIEGO JOZA
+                        ESPECIALISTA EN REHABILITACION ORAL Y ESTETICA CIRUGIA DENTO MAXILO FACIAL ENDODONCIA,
+                        ORTODONCIA,DISEÑO DE SONRISA,
+                        TECNOLOGIA DE PUNTA RADIOVISOGRAFO DIGITAL,CAMARA INTRAORAL ,LASSER DENTAL,</p>
+                </div>
+                <img src="./perfil.jpeg" alt="">
             </div>
-            <img src="./perfil.jpeg" alt="">
+        </div>
+    </div>
+    <div class="popup-container hidden" id="meal-popup">
+        <div class="popup">
+            <button id="close-popup" class="close-popup">
+                <i class="fas fa-times"></i>
+            </button>
+            <div>
+                <input type="text" placeholder="nombre">
+                <input type="password" placeholder="constraseña">
+                <button id="acceder">acceder</button>
+            </div>
         </div>
     </div>
 </body>
