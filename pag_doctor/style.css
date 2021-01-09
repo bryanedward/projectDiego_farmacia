@@ -15,7 +15,7 @@ header{
     flex: 25%;
     box-shadow: 1px 1px 4px 1px;
     padding: 0 0 1rem 0;
-    border-top-right-radius: 2.4rem ;
+    border-top-right-radius: 0.9rem ;
     text-transform: uppercase;
 
 }
@@ -27,7 +27,7 @@ header{
 .doctor > img {
     max-width: 20rem;
     background-size: cover;
-    border-top-right-radius: 2.4rem ;
+    border-top-right-radius: 0.9rem ;
 
 }
 
