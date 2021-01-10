@@ -4,20 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
-    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title>Administrador</title>
+    <title>Cuenta Personal</title>
 </head>
 
 <body>
     <nav class="header-nav">
         <a href="../index.html">Pagina Oficial</a>
-        <a href="#">Compra AQUI</a>
+        <a href="../pag_doctor/farmacia.html">Solicitar turno</a>
     </nav>
-    <div class="citas" id="citas">
+    <div class="list_solicitudes">
+        <div class="soli_aceptadas" id="soli_aceptadas">
+            <h4>Lista de solicitudes aceptadas</h4>
+        </div>
+        <div class="soli_rechazadas" id="soli_rechazadas">
+            <h4>Lista de espera</h4>
+        </div>
     </div>
 </body>
 
