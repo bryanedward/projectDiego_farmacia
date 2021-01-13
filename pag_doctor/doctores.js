@@ -13,6 +13,23 @@ var farmdPopup = document.getElementById("meal-info");
 var prodPopup = document.getElementById("meal-popup");
 var btnSalir = document.getElementById('close-popup')
 
+var datos = JSON.parse(localStorage.getItem("usuario"));
+var ruta = window.location;
+var ri = ruta.href.split("pag_doctor")
+var salir = document.getElementById('salir')
+
+if (datos === null) {
+    //valida la existencia de datos en el localstorage
+    location.href = `${ri[0]}index.html`;
+}
+
+salir.addEventListener('click', () => {
+    //redirecciona a la pagina principal
+    location.href = `${ri[0]}index.html`;
+})
+
+
+
 obtenerDoctores()
 async function obtenerDoctores() {
     //consultar todos los doctores
