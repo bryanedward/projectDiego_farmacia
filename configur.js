@@ -24,9 +24,18 @@ close_popup.addEventListener('click', () => {
     pop_login.classList.add("hidden")
 })
 
+localStorage.clear();
+
 acceder.addEventListener('click', () => {
     //acceso de sistema
     database.ref(`usuarios/${nombre.value}`).once('value', (datos) => {
+
+        var dat = new Object()
+        dat.cedula = datos.key
+        dat.nombre = datos.val().nombre
+        dat.rol = datos.val().rol
+
+        localStorage.setItem("usuario", JSON.stringify(dat))
         if (datos.val().rol === 'admin') {
             location.href = `${ri[0]}pag_admin/administrador.html`;
         } else {
@@ -35,12 +44,6 @@ acceder.addEventListener('click', () => {
     }).catch(err => {
         console.log(err);
     })
-
-
-
-
-
-
 })
 
 
