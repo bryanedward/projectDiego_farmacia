@@ -39,6 +39,30 @@
     border-bottom: 0.2rem solid rgb(0, 0, 0);
     cursor: pointer;
 }
+/* info_farmacia infomracion de la farmaci a*/
+
+.info_farmacia{
+    border: 1px solid;
+    padding: .5em;
+    display: inline-flex;
+}
+
+.detail_farmacia{
+    display: flex;
+}
+
+.titulo{
+    font-size: .7rem;
+    font-weight: bolder;
+    margin-right:  .3rem;
+}
+
+.ssubtitulo{
+    font-size: .7rem;
+    text-align: center;
+    margin: auto;
+    margin-right: 10px;
+}
 
 @media screen and (max-width:900px){
     
@@ -46,6 +70,29 @@
         display: flex;
         flex-direction: column;
         margin-bottom:4rem ;
+    }
+    .info_farmacia{
+        border: 1px solid;
+        padding: .5em;
+        width: 60%;
+        display: inline-block;
+    }
+    
+    .detail_farmacia{
+        display: flex;
+    }
+    
+    .titulo{
+        font-size: .6rem;
+        font-weight: bolder;
+        margin-right:  1rem;
+    }
+    
+    .ssubtitulo{
+        font-size: .7rem;
+        text-align: center;
+        margin: auto;
+        margin-right: 10px;
     }
 
     

@@ -95,6 +95,12 @@ header{
     margin-bottom: 1rem;
 }
 
+.formulario > input.dato2{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+
 .formulario_btn{
     display: flex;
     justify-content: space-between;

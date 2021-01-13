@@ -46,22 +46,51 @@ function mostrarCita(params) {
     var citaE = document.getElementById('soli_rechazadas')
     var divCita = document.createElement('div')
     var divCitaE = document.createElement('div')
+    var farmacia = []
+
+    params.val().farmacia.forEach(element => {
+        farmacia.push(element)
+    });
 
     if (params.val().validar === true) {
         divCita.innerHTML = `
-        <div class="container_aprobado"> 
-            <p>NOMBRE: ${params.val().nombre}</p>
-            <p>DIRECCIÓN: ${params.val().dirreccion}</p>
-            <small>Aprobado</small>
+        <div class="container_aprobado">
+            <div class="details_aprobado">
+                <p class="titl_aprobado">nombre de la Farmacia</p>
+                <p>${farmacia[0].nombre}</p>
+            </div>
+            <div class="details_aprobado">
+                <p class="titl_aprobado">Dirrección de la Farmacia</p>
+                <p>${farmacia[0].dirreccion}</p>
+            </div>
+            <div class="details_aprobado">
+                <p class="titl_aprobado">telefono de la Farmacia</p>
+                <p>${farmacia[0].telefono}</p>
+            </div> 
+            <div class="details_aprobado">
+                <p class="titl_aprobado">Su cita sera </p>
+                <p>${params.val().dia} A LAS "${params.val().hora}"</p>
+            </div>
+            <p>Aprobado</p>
         </div>`
 
         cita.appendChild(divCita)
     } else {
         divCitaE.innerHTML = `
-        <div class="container_aprobadoE"> 
-            <p>NOMBRE: ${params.val().nombre}</p>
-            <p>DIRECCIÓN: ${params.val().dirreccion}</p>
-            <small>En Espera</small>
+        <div class="container_aprobadoE">
+            <div class="details_aprobadoR">
+                <p class="titl_aprobadoR">nombre de la Farmacia</p>
+                <p>${farmacia[0].nombre}</p>
+            </div>
+            <div class="details_aprobadoR">
+                <p class="titl_aprobadoR">Dirrección de la Farmacia</p>
+                <p>${farmacia[0].dirreccion}</p>
+            </div>
+            <div class="details_aprobadoR">
+                <p class="titl_aprobadoR">telefono de la Farmacia</p>
+                <p>${farmacia[0].telefono}</p>
+            </div> 
+            <p>En Espera</p>
         </div>`
         citaE.appendChild(divCitaE)
     }

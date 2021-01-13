@@ -56,7 +56,7 @@ function mostrarDoctor(params) {
     <div class="doctor">
     <img src=${params.val().foto}> 
     <p>Nombre : ${params.val().nombre} </p>
-    <p>Dirreción : ${params.val().dirreccion}</p>
+    <p>Dirrección : ${params.val().dirreccion}</p>
     <p>Telefono : ${params.val().telefono}</p>
     <button class="reservarCita" id="reservarCita">Reservar cita </button>
     </div>
@@ -84,20 +84,67 @@ function reservarCita(params) {
     <p>Telefono : ${params.val().telefono}</p>
         <div class=formulario>
             <h4>Reservar Cita</h4>
-            <input class="dato" type="text" placeholder="nombre">
-            <input class="dato" type="text" placeholder="celular">
+            <input class="dato" 
+            id="nombre" type="text" 
+            placeholder="${datos.nombre}" required disabled>
+            <input class="dato2" 
+            id="celular" 
+            type="text" placeholder="celular" required>
             <div class="formulario_btn">
-            <input type="date" 
+            <input type="date"
+            class="date" 
             id="start" name="trip-start"
             value=""
-            min="2021-01-01" max="2021-12-31">
-            <input type="time" name="hora" min="08:00" 
-            max="17:00"  />
-            <button id="btn">SolicitarTurno</button>
+            min="2021-01-01" max="2021-12-31" required>
+            <input type="time" 
+                class="time"
+                id="time" name="hora" min="08:00" 
+            max="17:00"  required/>
+            <button id="btn" class="btn">SolicitarTurno</button>
             </div>
-       
         </div>
-    </div>`
+    </div>`;
+
+
+
     farmdPopup.appendChild(info)
+
+    var nombre = info.querySelector('.dato')
+    var celular = info.querySelector('.dato2')
+    var btnENviar = info.querySelector('.btn')
+    var time = info.querySelector('.time')
+    var date = info.querySelector('.date')
+
+    let cantidad = []
+
+    btnENviar.addEventListener('click', () => {
+        database.ref('citas').once('value').then(datos => {
+            //colocer la cantida de  ususarios que solocitan 
+            //el serivicio
+            datos.forEach(element => {
+                cantidad.push(element)
+            })
+        })
+
+        database.ref(`citas/${cantidad.length + 1}`).set({
+            cedula: datos.cedula,
+            nombre: nombre.placeholder,
+            dirreccion: params.val().dirreccion,
+            hora: time.value,
+            dia: date.value,
+            celular: celular.value,
+            validar: false,
+            farmacia: [{
+                nombre: params.val().nombre,
+                dirreccion: params.val().dirreccion,
+                telefono: params.val().telefono
+            }]
+        })
+        celular.value = ""
+        time.value = ""
+        date.value = ""
+
+        console.log('enviado');
+    })
 
 }

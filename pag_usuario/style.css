@@ -38,9 +38,25 @@ h4{
     padding: 0.2rem 0.5rem;
 }
 
-.container_aprobado > small{
+.container_aprobado > p{
     color: green;
 }
+
+.details_aprobado{
+    display: inline-flex;
+    width: 100%;
+}
+
+.details_aprobado .titl_aprobado{
+    font-weight: bolder;
+}
+
+.details_aprobado .titl_aprobado::after{
+    content: "->";
+    font-weight: bolder;
+    margin: 0 1rem;
+}
+
 
 .container_aprobadoE{
     width: 90%;
@@ -54,8 +70,24 @@ h4{
 }
 
 
-.container_aprobadoE > small{
+.container_aprobadoE > p{
     color: red;
+}
+
+.details_aprobadoR{
+    display: inline-flex;
+    font-size: .6rem;
+    width: 100%;
+}
+
+.details_aprobadoR .titl_aprobadoR{
+    font-weight: bolder;
+}
+
+.details_aprobadoR .titl_aprobadoR::after{
+    content: "->";
+    font-weight: bolder;
+    margin: 0 1rem;
 }
 
 @media screen and (max-width:900px){
@@ -74,6 +106,13 @@ h4{
         width: 100%;
         border: 1px solid black;
     }
+
+    .details_aprobado{
+        font-size: .9rem;
+    }
     
+    .details_aprobadoR{
+        font-size: .9rem;
+    }
 
 }
