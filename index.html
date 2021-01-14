@@ -52,7 +52,7 @@
             </div>
             <div class="service">
                 <img src="./imagenes/example-8.svg" alt="">
-                <li><a href="./pag_doctor/farmacia.html">Solicitar Turno</a></li>
+                <li><a href="#">Solicitar Turno</a></li>
             </div>
         </div>
         <div>
@@ -73,10 +73,17 @@
             <button id="close-popup" class="close-popup">
                 <i class="fas fa-times"></i>
             </button>
-            <div>
-                <input type="text" id="nombre" placeholder="nombre">
-                <input type="password" id="pass" placeholder="constraseña">
+            <div class="accesocontainer" id="accesocontainer">
+                <input type="text" id="nombre" placeholder="cedula" required>
                 <button id="acceder">acceder</button>
+                <button id="registro">registrar</button>
+            </div>
+            <div class="registro hidden" id="registrocontainer">
+                <input type="text" id="nombreR" placeholder="nombre" required>
+                <input type="text" id="cedulaR" placeholder="cedula" required>
+                <input type="text" id="direccionR" placeholder="dirrección" required>
+                <button id="registrar">registrarse</button>
+                <button id="regresar_login">Regresar</button>
             </div>
         </div>
     </div>

@@ -27,9 +27,11 @@ obtenerCitas()
 async function obtenerCitas() {
     //consultar todas las citas
     let data = []
-    database.ref('citas').once('value').then(datos => {
-        datos.forEach(element => {
-            data.push(element)
+    database.ref('citas').once('value').then(datosF => {
+        datosF.forEach(element => {
+            if (element.val().cedula === datos.cedula) {
+                data.push(element)
+            }
         })
         cita(data)
     })
@@ -60,7 +62,7 @@ function mostrarCita(params) {
                 <p>${farmacia[0].nombre}</p>
             </div>
             <div class="details_aprobado">
-                <p class="titl_aprobado">Dirrección de la Farmacia</p>
+                <p class="titl_aprobado">Dirección de la Farmacia</p>
                 <p>${farmacia[0].dirreccion}</p>
             </div>
             <div class="details_aprobado">
@@ -83,7 +85,7 @@ function mostrarCita(params) {
                 <p>${farmacia[0].nombre}</p>
             </div>
             <div class="details_aprobadoR">
-                <p class="titl_aprobadoR">Dirrección de la Farmacia</p>
+                <p class="titl_aprobadoR">Dirección de la Farmacia</p>
                 <p>${farmacia[0].dirreccion}</p>
             </div>
             <div class="details_aprobadoR">

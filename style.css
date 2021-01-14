@@ -99,12 +99,20 @@ bottom: 0%;
 
 }
 
-.container-services .service > p{
+.container-services .service > li{
     text-transform: uppercase;
     text-align: center;
     margin-top: .9rem;
     color: rgb(2, 34, 49);
+    list-style-type: none;
 }
+
+
+.container-services .service  li a{ 
+    text-decoration: none;
+    color: rgb(2, 34, 49);
+}
+
 
 .container-services .service:hover{
     animation-name: services;
@@ -148,6 +156,33 @@ bottom: 0%;
         position: relative;  
         border: 2px solid  rgb(2, 34, 49);}
 
+}
+
+.popup {
+    width: 40rem;
+}
+
+.popup button{
+    padding: .3rem;
+}
+
+input{
+    max-width: 100%;
+    padding: .4zrem;
+}
+/* /registro */
+.registro.hidden{
+    display: none;
+}
+
+.accesocontainer.hidden{
+    display: none;
+}
+
+/* diseño de los input */
+input{
+    width:90%;
+    margin: .3rem;
 }
 
 

@@ -56,7 +56,7 @@ function mostrarDoctor(params) {
     <div class="doctor">
     <img src=${params.val().foto}> 
     <p>Nombre : ${params.val().nombre} </p>
-    <p>Dirrección : ${params.val().dirreccion}</p>
+    <p>Dirección : ${params.val().dirreccion}</p>
     <p>Telefono : ${params.val().telefono}</p>
     <button class="reservarCita" id="reservarCita">Reservar cita </button>
     </div>
@@ -80,7 +80,7 @@ function reservarCita(params) {
     info.innerHTML = ` <div class="FarmInfo"> 
     <h1>${params.val().nombre}</h1>
     <p>Nombre: ${params.val().nombre} </p>
-    <p>Dirreción : ${params.val().dirreccion}</p>
+    <p>Direción : ${params.val().dirreccion}</p>
     <p>Telefono : ${params.val().telefono}</p>
         <div class=formulario>
             <h4>Reservar Cita</h4>
@@ -109,42 +109,42 @@ function reservarCita(params) {
 
     farmdPopup.appendChild(info)
 
-    var nombre = info.querySelector('.dato')
-    var celular = info.querySelector('.dato2')
-    var btnENviar = info.querySelector('.btn')
-    var time = info.querySelector('.time')
-    var date = info.querySelector('.date')
+    var nombres = info.querySelector('.dato')
+    var celulars = info.querySelector('.dato2')
+    var btnENviars = info.querySelector('.btn')
+    var times = info.querySelector('.time')
+    var dates = info.querySelector('.date')
 
-    let cantidad = []
+    var cantidad = []
 
-    btnENviar.addEventListener('click', () => {
+    btnENviars.addEventListener('click', () => {
         database.ref('citas').once('value').then(datos => {
             //colocer la cantida de  ususarios que solocitan 
             //el serivicio
             datos.forEach(element => {
                 cantidad.push(element)
             })
+        }).then(() => {
+            database.ref(`citas/${cantidad.length + 1}`).set({
+                cedula: datos.cedula,
+                nombre: nombres.placeholder,
+                dirreccion: datos.direccion,
+                hora: times.value,
+                dia: dates.value,
+                celular: celulars.value,
+                validar: false,
+                farmacia: [{
+                    nombre: params.val().nombre,
+                    dirreccion: params.val().dirreccion,
+                    telefono: params.val().telefono
+                }]
+            })
+            nombres.value = ""
+            celulars.value = ""
+            times.value = ""
+            dates.value = ""
+            console.log('enviado');
         })
-
-        database.ref(`citas/${cantidad.length + 1}`).set({
-            cedula: datos.cedula,
-            nombre: nombre.placeholder,
-            dirreccion: params.val().dirreccion,
-            hora: time.value,
-            dia: date.value,
-            celular: celular.value,
-            validar: false,
-            farmacia: [{
-                nombre: params.val().nombre,
-                dirreccion: params.val().dirreccion,
-                telefono: params.val().telefono
-            }]
-        })
-        celular.value = ""
-        time.value = ""
-        date.value = ""
-
-        console.log('enviado');
     })
 
 }

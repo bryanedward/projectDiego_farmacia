@@ -9,14 +9,29 @@ firebase.initializeApp({
 var database = firebase.database();
 var tarjet = document.createElement('div')
 var citas = document.getElementById('citas')
+var datos = JSON.parse(localStorage.getItem("usuario"));
+var ruta = window.location;
+var ri = ruta.href.split("pag_admin")
+if (datos === null) {
+    //valida la existencia de datos en el localstorage
+    location.href = `${ri[0]}index.html`;
+}
+
+salir.addEventListener('click', () => {
+    //redirecciona a la pagina principal
+    location.href = `${ri[0]}index.html`;
+})
+
+
 
 obtenerCitas()
 
 async function obtenerCitas() {
 
-    let data = []
-    await database.ref('citas').once('value').then(datos => {
-        datos.forEach(element => {
+    var data = []
+    database.ref('citas').once('value').then(dats => {
+        console.log(dats);
+        dats.forEach(element => {
             data.push(element)
         })
         cita(data)
@@ -31,10 +46,13 @@ function cita(data) {
 
 function mostrarCitas(element) {
     var farmcia = []
-
     element.val().farmacia.forEach(element => {
         farmcia.push(element)
     });
+
+    var tarjet = document.createElement('div')
+    var citas = document.getElementById('citas')
+
 
     tarjet.innerHTML = `
     <div class="cita"> 
@@ -63,9 +81,8 @@ function mostrarCitas(element) {
         <button class="aceptar" id="aceptar">ACEPTAR</button>
         <button class="rechazar" id="rechazar">RECHAZAR</button>
     </div>
-    </div > `
+    </div > `;
 
-    citas.appendChild(tarjet)
 
     var btnAceptar = tarjet.querySelector('.aceptar')
     var rechazar = tarjet.querySelector('.rechazar')
@@ -78,6 +95,9 @@ function mostrarCitas(element) {
         valida = false
         validarCitas(element, farmcia, valida)
     })
+
+    citas.appendChild(tarjet)
+
 }
 
 function validarCitas(params, farmcia, valida) {
